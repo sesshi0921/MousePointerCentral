@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+src/mouse_mcp/__init__.py
+src/mouse_mcp/actions.py
+src/mouse_mcp/config.py
+src/mouse_mcp/mouse.py
+src/mouse_mcp/recorder.py
+src/mouse_mcp/report.py
+src/mouse_mcp/server.py
+src/mouse_mcp/worker.py
+src/mouse_mcp.egg-info/PKG-INFO
+src/mouse_mcp.egg-info/SOURCES.txt
+src/mouse_mcp.egg-info/dependency_links.txt
+src/mouse_mcp.egg-info/requires.txt
+src/mouse_mcp.egg-info/top_level.txt
+tests/test_actions.py
+tests/test_execute_dry_run.py
