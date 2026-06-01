@@ -1,6 +1,7 @@
 # MousePointerCentral
 
 マウスポインタ操作用 MCP サーバー実装です。
+録画入力は macOS / Windows / Linux の各 OS をサポートしています。
 
 ## セットアップ
 
