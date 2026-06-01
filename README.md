@@ -1,0 +1,2 @@
+# MousePointerCentral
+マウスポインタをClaudeが操作。
