@@ -19,9 +19,9 @@ def generate_report(output_dir: str | Path, timestamp: str, log: list[dict]) -> 
             "</tr>"
         )
     body = "".join(rows)
-    content = f"""<!doctype html><html lang=\"ja\"><head><meta charset=\"utf-8\"><title>Mouse Automation Report</title></head><body>
+    content = f"""<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>マウス自動操作レポート</title></head><body>
   <h1>実行レポート {html.escape(timestamp)}</h1>
-  <video src=\"recording.mp4\" controls width=\"800\"></video>
+  <video src="recording.mp4" controls width="800"></video>
   <table>
     <tr><th>#</th><th>t(s)</th><th>type</th><th>詳細</th></tr>
     {body}

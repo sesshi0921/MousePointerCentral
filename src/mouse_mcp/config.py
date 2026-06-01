@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-def _as_bool(value: str, default: bool) -> bool:
+def _as_bool(value: str | None, default: bool) -> bool:
     if value is None:
         return default
     return value.strip().lower() in {"1", "true", "yes", "on"}

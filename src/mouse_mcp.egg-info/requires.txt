@@ -1,3 +1,0 @@
-mcp
-pyautogui
-pydantic<3,>=2

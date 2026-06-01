@@ -27,10 +27,17 @@ class Recorder:
     def stop(self) -> None:
         if not self.proc:
             return
+        if self.proc.poll() is not None:
+            self.proc = None
+            return
         try:
             self.proc.communicate(input=b"q", timeout=10)
-        except Exception:
+        except subprocess.TimeoutExpired:
             self.proc.terminate()
-            self.proc.wait(timeout=5)
+            try:
+                self.proc.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                self.proc.kill()
+                self.proc.wait(timeout=5)
         finally:
             self.proc = None

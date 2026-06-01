@@ -14,8 +14,9 @@ class Worker(threading.Thread):
         self.abort_flag = threading.Event()
         self.mouse = mouse
         self.log: list[dict] = []
+        self.log_lock = threading.Lock()
 
-    def _drain(self) -> int:
+    def clear(self) -> int:
         drained = 0
         while True:
             try:
@@ -28,7 +29,7 @@ class Worker(threading.Thread):
         while True:
             self.run_event.wait()
             if self.abort_flag.is_set():
-                self._drain()
+                self.clear()
                 self.abort_flag.clear()
                 self.run_event.clear()
                 self.done_event.set()
@@ -42,6 +43,14 @@ class Worker(threading.Thread):
             ts = time.time()
             try:
                 self.mouse.execute(action)
-                self.log.append({"action": action, "t": ts})
+                with self.log_lock:
+                    self.log.append({"action": action, "t": ts})
             except Exception as exc:  # pragma: no cover - defensive
-                self.log.append({"action": action, "t": ts, "error": str(exc)})
+                with self.log_lock:
+                    self.log.append(
+                        {
+                            "action": action,
+                            "t": ts,
+                            "error": f"{type(exc).__name__}: {exc}",
+                        }
+                    )

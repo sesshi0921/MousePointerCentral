@@ -78,7 +78,7 @@ def peek_queue() -> dict:
 
 @mcp.tool()
 def clear_queue() -> dict:
-    cleared = _worker._drain()
+    cleared = _worker.clear()
     return {"cleared": cleared}
 
 
@@ -99,7 +99,9 @@ def stop_recording() -> dict:
         return {"video_path": None, "html_path": None}
     _recorder.stop()
     _recording = False
-    html_path = generate_report(_recording_dir, _recording_dir.name, _worker.log)
+    with _worker.log_lock:
+        log_snapshot = list(_worker.log)
+    html_path = generate_report(_recording_dir, _recording_dir.name, log_snapshot)
     return {"video_path": str(_recording_dir / "recording.mp4"), "html_path": str(html_path)}
 
 
@@ -119,12 +121,14 @@ def execute(record: bool = True, name: str | None = None, dry_run: bool = False)
         stopped = stop_recording()
         video_path = stopped["video_path"]
         html_path = stopped["html_path"]
+    with _worker.log_lock:
+        log_snapshot = list(_worker.log)
     return {
         "status": "completed",
         "recording_path": started["recording_path"] if started else None,
         "video_path": video_path,
         "html_path": html_path,
-        "log": _worker.log,
+        "log": log_snapshot,
     }
 
 
