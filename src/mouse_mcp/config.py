@@ -19,6 +19,8 @@ class Config:
     failsafe: bool
     pause: float
     max_queue: int
+    coord_scale_x: float
+    coord_offset_y: int
 
 
 CONFIG = Config(
@@ -28,4 +30,6 @@ CONFIG = Config(
     failsafe=_as_bool(os.getenv("MOUSE_MCP_FAILSAFE"), True),
     pause=float(os.getenv("MOUSE_MCP_PAUSE", "0.1")),
     max_queue=int(os.getenv("MOUSE_MCP_MAX_QUEUE", "500")),
+    coord_scale_x=float(os.getenv("MOUSE_MCP_COORD_SCALE_X", "1.01")),
+    coord_offset_y=int(os.getenv("MOUSE_MCP_COORD_OFFSET_Y", "15")),
 )

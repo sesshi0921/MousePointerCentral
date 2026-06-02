@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep *)",
+      "Bash(find . *)",
+      "Bash(find /Users/sei.miyagawa *)",
+      "Bash(find ~/.claude *)",
+      "Bash(wc -l *)",
+      "Bash(wc -c *)",
+      "Bash(which *)",
+      "Bash(pgrep *)",
+      "Bash(ruff check *)",
+      "Bash(defaults read *)",
+      "Bash(plutil -convert json *)",
+      "Bash(screencapture -x /tmp/*.png)",
+      "mcp__screen-percept__capture_screen",
+      "mcp__screen-percept__get_region",
+      "mcp__screen-percept__get_active_window",
+      "mcp__screen-percept__focus_window",
+      "mcp__screen-percept__get_accessibility_tree",
+      "mcp__screen-percept__preprocess_region",
+      "mcp__screen-percept__detect_candidates",
+      "mcp__screen-percept__refine_point",
+      "mcp__mouse__enqueue_actions",
+      "mcp__mouse__execute",
+      "mcp__mouse__get_status",
+      "mcp__mouse__get_screen_info",
+      "mcp__mouse__clear_queue",
+      "mcp__mouse__peek_queue",
+      "mcp__mouse__abort",
+      "mcp__mouse__start_recording",
+      "mcp__mouse__stop_recording"
+    ]
+  }
+}
