@@ -91,6 +91,8 @@ def _get_dpi_scale() -> float:
 
             return float(NSScreen.mainScreen().backingScaleFactor())
         if platform.system() == "Windows":
+            # ctypes is required to call the Windows Shell Scaling API;
+            # there is no pure-Python alternative for querying DPI.
             import ctypes  # noqa: S404
 
             return ctypes.windll.shcore.GetScaleFactorForDevice(0) / 100.0  # type: ignore[attr-defined]

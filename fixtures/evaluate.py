@@ -63,11 +63,12 @@ def evaluate() -> dict:
         if not gt:
             continue
 
-        # In a full run, we would call the detection pipeline here.
-        # For now, the harness demonstrates the metrics skeleton.
+        # TODO: Call the full detection pipeline here once fixtures are
+        # populated.  Currently this is skeleton code that only validates
+        # the metric calculation logic.
         total_gt += len(gt)
 
-        # Placeholder: no candidates yet
+        # Placeholder: no candidates until the pipeline is wired in.
         candidates: list[dict] = []
 
         for g in gt:

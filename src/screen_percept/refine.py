@@ -67,9 +67,10 @@ def refine_point(
                             best_dist = d
                             bx, by = nx, ny
 
-        # Move *away* from the nearest edge (stay inside the component)
+        # When a nearby edge is found we keep the original centre so that
+        # the click lands inside the component rather than on its border.
         if best_dist <= snap_radius:
-            candidate["click_target"] = [cx, cy]  # keep centre – avoid the edge
+            candidate["click_target"] = [cx, cy]
             candidate["snapped"] = True
         else:
             candidate["snapped"] = False
