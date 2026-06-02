@@ -6,6 +6,10 @@
       "env": {
         "MOUSE_MCP_OUTPUT_DIR": "/Users/sei.miyagawa/Documents/test"
       }
+    },
+    "screen-percept": {
+      "command": "/Users/sei.miyagawa/private/MousePointerCentral/.venv/bin/python",
+      "args": ["-m", "screen_percept.server"]
     }
   }
 }
