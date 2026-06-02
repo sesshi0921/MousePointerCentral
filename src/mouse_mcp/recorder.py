@@ -14,7 +14,7 @@ class Recorder:
     def _platform_input(self) -> list[str]:
         system = platform.system().lower()
         if system == "darwin":
-            return ["-f", "avfoundation", "-i", "1:none"]
+            return ["-f", "avfoundation", "-capture_cursor", "1", "-i", "2:none"]
         if system == "windows":
             return ["-f", "gdigrab", "-i", "desktop"]
         return ["-f", "x11grab", "-i", ":0.0"]

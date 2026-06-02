@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "mouse": {
+      "command": "/Users/sei.miyagawa/private/MousePointerCentral/.venv/bin/python",
+      "args": ["-m", "mouse_mcp.server"],
+      "env": {
+        "MOUSE_MCP_OUTPUT_DIR": "/Users/sei.miyagawa/Documents/test"
+      }
+    }
+  }
+}

@@ -143,3 +143,7 @@ def abort() -> dict:
 def get_status() -> dict:
     state = "running" if _worker.run_event.is_set() else "idle"
     return {"worker_state": state, "queue_size": _worker.q.qsize(), "recording": _recording}
+
+
+if __name__ == "__main__":
+    mcp.run()
