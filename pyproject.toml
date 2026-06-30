@@ -5,13 +5,31 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "mouse-mcp"
 version = "0.1.0"
-description = "Mouse pointer control MCP server"
+description = "Mouse pointer control MCP server & screen perception"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
   "mcp",
   "pyautogui",
   "pydantic>=2,<3",
+  "pywinctl",
+  "mss",
+  "Pillow",
+  "numpy",
+]
+
+[project.optional-dependencies]
+cv = [
+  "opencv-python",
+  "pytesseract",
+]
+macos = [
+  "pyobjc-framework-Quartz",
+  "pyobjc-framework-Cocoa",
+]
+windows = [
+  "pywin32",
+  "uiautomation",
 ]
 
 [tool.setuptools]
